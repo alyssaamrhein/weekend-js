@@ -30,7 +30,7 @@ var yesPlay = function (){
     alert('Correct, you\'re a genius.');
   } else {
     allAnswers.push('Answer ' + question1);
-    alert('You\'re wrong, and no one loves you');
+    alert('Try again :( ');
   }
 }
 
