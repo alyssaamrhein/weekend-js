@@ -15,4 +15,4 @@ while ( x < questions.length) {
 
 allAnswers.forEach(function(answer) {
   console.log(answer);
-  });
+}); 

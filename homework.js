@@ -80,6 +80,7 @@
 
 
 // Ok, you have the questions. Here's the data to use!
+
 var items = [{
   "listing_id": 161489961,
   "state": "active",
@@ -1129,7 +1130,8 @@ var totalledPrices = items.reduce(function (previous, current) {
 }, 0);
 */
 var totalledPrices = _.reduce(items, function(previous, current){
-  return previous + current.price; }, 0);
+  return previous + current.price;
+  }, 0);
 
 console.log('The total sum is ' + totalledPrices);
 
@@ -1166,17 +1168,15 @@ console.log(
 /*----------- Question 4 ---------*/
 
 var filMat = _.filter(items, function (item) {
-   var itemMaterials = _.filter(item.materials, function (material) {
-     return (material === 'wood');
-   });
+  var itemMaterials = _.filter(items, function(item) {
+    return _.contains(item.materials, 'wood');
+  });
      return itemMaterials.length > 0;
  });
 
 var usingMap = _.map(filMat, function(filMat){ return filMat.title; });
 
-usingMap.forEach(function(item) {
-  console.log('Question 4: ' + item + " made with wood.");
-});
+_.each(usingMap, function(item) {console.log( 'Question 4: ' + item + ' made with wood.' ); });
 
 /*----------- Question 5 ---------*/
 
@@ -1187,13 +1187,13 @@ var moreThanEight = _.filter(items,function(item) {
 var moreEightTitle = _.map(moreThanEight, function(){
   return moreThanEight.title; });
 // was going for forEach here but are the not the same? _.each??
-moreThanEight.forEach(function(item) {
+
+_.each(moreThanEight, function (item) {
   console.log('Question Five Title: ' + item.title);
-   item.materials.forEach(function(mat) {
+  _.each(item.materials, function (mat) {
     console.log('Materials: ' + mat);
   });
 });
-
 
 /*----------- Question 6 ---------*/
 
